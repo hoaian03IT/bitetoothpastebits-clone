@@ -1,0 +1,24 @@
+.cart {
+    height: 80%;
+    overflow: scroll;
+    border-top: 5px solid var(--grey-color);
+    border-bottom: 5px solid var(--grey-color);
+
+    img {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    & .cart-item {
+        padding-bottom: 20px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid #dfdfdf;
+    }
+
+    & .cart-item-quantity {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid #dfdfdf;
+        border-radius: 50px;
+    }
+}

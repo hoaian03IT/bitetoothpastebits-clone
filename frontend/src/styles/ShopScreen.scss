@@ -1,0 +1,60 @@
+@import "./breakpoints.scss";
+
+.shop-screen {
+    padding-top: var(--height-navbar);
+    animation: fadeIn 0.2s linear;
+    & .shop-banner {
+        padding: 20px 0;
+        text-align: center;
+        background-color: var(--grey-color);
+
+        & h1 {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        & p {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+    }
+
+    & .shop-collections {
+        &-item {
+            display: block;
+            margin: 8px 0;
+            padding: 0 24px;
+            color: var(--black-color);
+            font-size: 1.2rem;
+
+            &.active {
+                font-weight: bold;
+                padding: 10px 24px;
+                border: 1px solid #dfdfdf;
+                border-radius: 50px;
+            }
+        }
+
+        &-mobile {
+            position: sticky;
+            top: var(--height-navbar);
+            z-index: 1;
+        }
+    }
+}
+
+@media (max-width: $lg) {
+    .shop-screen {
+        & .shop-banner {
+            & h1 {
+                font-size: 2.8rem;
+                font-weight: bold;
+            }
+
+            & p {
+                font-size: 1rem;
+                font-weight: 600;
+            }
+        }
+    }
+}

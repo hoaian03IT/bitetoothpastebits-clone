@@ -1,0 +1,9 @@
+.divider {
+    height: 5px;
+    background-color: #dce7ed;
+    border-radius: 10px;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    animation: fadeIn 0.2s linear;
+}

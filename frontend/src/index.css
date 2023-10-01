@@ -1,0 +1,337 @@
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&display=swap");
+
+:root {
+    --font-family1: "Cormorant Garamond", serif;
+    --font-family2: "Titillium Web", sans-serif;
+    --font-family3: "Alkatra", cursive;
+    --red-color: #ff0000;
+    --black-color: #131313;
+    --white-color: #fff;
+    --grey-color: #dce7ed;
+    --height-navbar: 70px;
+    --max-height-navbar: 80px;
+}
+
+header {
+    z-index: 3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family2);
+    line-height: 1.5;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--black-color);
+    text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+    color: var(--black-color);
+}
+
+.offcanvas-fluid {
+    width: 100% !important;
+}
+
+.offcanvas {
+    width: 500px !important;
+    cursor: default !important;
+}
+
+.container-no-gutter {
+    padding: 0;
+}
+
+.scroll-container-x {
+    max-width: 1800px;
+    display: flex;
+    overflow-x: scroll !important;
+    overflow-y: hidden;
+    width: 100%;
+    height: auto;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+}
+
+.scroll-container-x::-webkit-scrollbar {
+    display: none;
+}
+
+.word-break-all {
+    word-break: break-all;
+}
+
+.form-control {
+    box-shadow: none !important;
+}
+
+.px-6 {
+    padding: 0 4.5rem;
+}
+
+.px-7 {
+    padding: 0 6rem;
+}
+
+.px-8 {
+    padding: 0 7.5rem;
+}
+
+.px-9 {
+    padding: 0 9rem;
+}
+
+.px-10 {
+    padding: 0 10.5rem;
+}
+
+.px-11 {
+    padding: 0 12rem;
+}
+
+.px-12 {
+    padding: 0 13.5rem;
+}
+
+.py-7 {
+    padding: 6rem 0;
+}
+
+.py-8 {
+    padding: 7.5rem 0;
+}
+
+.py-9 {
+    padding: 9rem 0;
+}
+
+.py-10 {
+    padding: 10.5rem 0;
+}
+
+.py-11 {
+    padding: 12rem 0;
+}
+
+.py-12 {
+    padding: 13.5rem 0;
+}
+
+.mt-large {
+    margin-top: 10rem;
+}
+
+.mb-large {
+    margin-bottom: 10rem;
+}
+
+.my-large {
+    margin: 10rem 0;
+}
+
+.container-xxl {
+    max-width: 1400px;
+}
+
+.ff-1 {
+    font-family: var(--font-family1);
+}
+
+.ff-2 {
+    font-family: var(--font-family2);
+}
+
+.ff-3 {
+    font-family: var(--font-family3);
+}
+
+.fs-small {
+    font-size: 13px;
+}
+
+.fs-huge {
+    font-size: 4.6rem;
+}
+
+.top-height-navbar {
+    top: var(--height-navbar);
+}
+
+.text-black {
+    color: var(--black-color);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.z-3 {
+    z-index: 3;
+}
+.z-2 {
+    z-index: 2;
+}
+.z-1 {
+    z-index: 1;
+}
+.z-0 {
+    z-index: 0;
+}
+
+.btn {
+    border-radius: 100px;
+    padding: 12px 36px;
+    min-width: 250px;
+    box-shadow: 0 0 30px #0003 !important;
+}
+
+.btn-inbox-social {
+    height: 34px;
+    border-radius: 0;
+    border: 1px solid var(--black-color);
+    background-color: var(--black-color);
+    color: var(--white-color);
+    min-width: 88px;
+    padding: 0;
+}
+
+.btn-inbox-social:hover,
+.btn-inbox-social:active,
+.btn-inbox-social:focus {
+    background-color: var(--black-color) !important;
+    color: var(--white-color) !important;
+    border: 1px solid var(--black-color) !important;
+}
+
+.btn-fade {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 0;
+    outline: 0;
+}
+
+.btn-fade:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-primary {
+    background-color: var(--black-color);
+    border: 2px solid var(--black-color);
+}
+
+.btn-small {
+    padding: 2px;
+}
+
+.btn-short {
+    min-width: 140px;
+}
+
+.btn-light {
+    background-color: var(--white-color);
+    border: 1px solid #dfdfdf;
+}
+
+.btn-light:hover {
+    border-color: var(--black-color);
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid var(--black-color) !important;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bubbleUp {
+    0% {
+        opacity: 0;
+        bottom: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.4s linear 0s 1;
+}
+
+html *::-webkit-scrollbar {
+    display: none;
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(22, 24, 35, 0.06);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+button,
+input,
+[tabIndex] {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+svg {
+    outline: none;
+}
+
+.tippy-box {
+    font-size: 16px;
+    line-height: 22px;
+    border-radius: 8px;
+    background-color: rgba(84, 84, 84, 0.92);
+    color: rgb(255, 255, 255);
+}
+
+.tippy-box .tippy-content {
+    padding: 8px 9px;
+}
+
+.tippy-box .tippy-arrow {
+    color: rgba(84, 84, 84, 0.92);
+}
+
+.tippy-box[data-placement^="bottom"] > .tippy-arrow {
+    top: -1px;
+}

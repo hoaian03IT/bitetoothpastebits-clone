@@ -1,0 +1,32 @@
+@import "./breakpoints.scss";
+
+.card {
+    animation: fadeIn 0.2s linear;
+    &-featured-product {
+        border-radius: 20px;
+        border: none;
+
+        &-image-wrapper {
+            height: 250px;
+            & img {
+                height: 100%;
+                border-radius: 20px;
+                transform: scale(5px);
+                cursor: pointer;
+                object-fit: cover;
+            }
+        }
+
+        &-name {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+        }
+
+        & a[role="button"] {
+            display: block;
+            width: 60%;
+        }
+    }
+}

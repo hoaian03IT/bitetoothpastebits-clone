@@ -1,0 +1,48 @@
+.navbar {
+    transition: all 0.2s ease-in-out;
+    height: var(--height-navbar);
+    max-height: var(--max-height-navbar);
+
+    &-transparent {
+        transition: all 0.1s ease-in-out;
+        background-color: transparent;
+    }
+
+    &-white {
+        background-color: var(--white-color);
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 1px 0px, rgba(0, 0, 0, 0.03) 0px 2px 2px 0px,
+            rgba(0, 0, 0, 0.02) 0px 4px 4px 0px, rgba(0, 0, 0, 0.02) 0px 8px 8px 0px,
+            rgba(0, 0, 0, 0.02) 0px 16px 16px 0px;
+    }
+}
+
+.navbar-pc {
+    & .dropdown-title {
+        max-width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+}
+
+.brand-logo a {
+    font-size: 2rem;
+    font-family: var(--font-family3);
+    font-weight: 700;
+}
+
+.cart-notify {
+    position: absolute;
+    top: -4px;
+    right: -3px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid var(--white-color);
+    border-radius: 10px;
+    background-color: var(--red-color);
+}
+
+a.active {
+    color: #999;
+}

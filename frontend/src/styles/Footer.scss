@@ -1,0 +1,90 @@
+@import "./breakpoints.scss";
+
+$padding: 0 5% 36px;
+
+footer {
+    background-color: var(--grey-color);
+    padding: 100px 3% 12px;
+
+    & .refresh-inbox {
+        padding: $padding;
+        border-bottom: 1px solid var(--black-color);
+        & .refresh-inbox-form-social {
+            & input {
+                height: 34px;
+                padding-left: 16px;
+                border-radius: 0;
+                border: 1px solid var(--black-color);
+
+                &:focus {
+                    box-shadow: none;
+                    border: 1px solid var(--black-color);
+                }
+            }
+
+            & .network-social {
+                height: 28px;
+                width: 28px;
+            }
+        }
+    }
+
+    & .site-links {
+        padding: $padding;
+        border-bottom: 1px solid var(--black-color);
+
+        & .brand-logo {
+            height: 80px;
+            width: 80px;
+        }
+
+        & h6 {
+            letter-spacing: 6px;
+            font-weight: bold;
+        }
+
+        & ul li {
+            & a:hover {
+                text-decoration: underline;
+            }
+
+            & + li {
+                margin-top: 8px;
+            }
+        }
+    }
+
+    & .copyright {
+        padding: $padding;
+        & a {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@media (min-width: 0) and (max-width: $md) {
+    footer {
+        & .refresh-inbox {
+            & .refresh-inbox-content {
+                text-align: center;
+            }
+        }
+
+        & .site-links {
+            & .brand-logo {
+                height: 50px;
+                width: 50px;
+
+                & a {
+                    color: var(--black-color) !important;
+                }
+            }
+        }
+
+        & .copyright {
+            text-align: center;
+        }
+    }
+}

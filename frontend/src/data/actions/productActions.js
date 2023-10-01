@@ -1,0 +1,21 @@
+const FETCH_PRODUCTS_REQUEST = "fetchProductsRequest";
+const FETCH_PRODUCTS_SUCCESS = "fetchProductsSuccess";
+const FETCH_PRODUCTS_FAIL = "fetchProductsFail";
+const FETCH_FEATURED_PRODUCTS_REQUEST = "fetchFeaturedProductsRequest";
+const FETCH_FEATURED_PRODUCTS_SUCCESS = "fetchFeaturedProductsSuccess";
+const FETCH_FEATURED_PRODUCTS_FAIL = "fetchFeaturedProductsFail";
+const FETCH_DETAIL_PRODUCT_REQUEST = "fetchDetailProductRequest";
+const FETCH_DETAIL_PRODUCT_SUCCESS = "fetchDetailProductSuccess";
+const FETCH_DETAIL_PRODUCT_FAIL = "fetchDetailProductFail";
+
+export {
+    FETCH_PRODUCTS_SUCCESS,
+    FETCH_PRODUCTS_REQUEST,
+    FETCH_PRODUCTS_FAIL,
+    FETCH_FEATURED_PRODUCTS_REQUEST,
+    FETCH_FEATURED_PRODUCTS_SUCCESS,
+    FETCH_FEATURED_PRODUCTS_FAIL,
+    FETCH_DETAIL_PRODUCT_REQUEST,
+    FETCH_DETAIL_PRODUCT_SUCCESS,
+    FETCH_DETAIL_PRODUCT_FAIL,
+};
