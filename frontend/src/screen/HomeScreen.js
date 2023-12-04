@@ -10,19 +10,19 @@ import { Divider } from "~/components/Divider";
 import { FeaturedProduct } from "~/components/FeaturedProduct";
 import { ShopProduct } from "~/components/ShopProduct";
 import { publicRoutes } from "~/config/routePath";
-import { Store } from "~/data/Store";
 import {
     FETCH_FEATURED_PRODUCTS_FAIL,
     FETCH_FEATURED_PRODUCTS_REQUEST,
     FETCH_FEATURED_PRODUCTS_SUCCESS,
 } from "~/data/actions/productActions";
+import { ProductContext } from "~/data/Product";
 import { fetchFeaturedProductsApi } from "~/api";
 
 import "~/styles/HomeScreen.scss";
 import { getError } from "~/utils";
 
 function HomeScreen() {
-    const { state, dispatch } = useContext(Store);
+    const { state, dispatch } = useContext(ProductContext);
 
     const { featuredProducts } = state.product;
 

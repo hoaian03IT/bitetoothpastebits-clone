@@ -3,7 +3,7 @@ import { Button, Form, Spinner } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { publicRoutes } from "~/config/routePath";
-import { Store } from "~/data/Store";
+import { StoreContext } from "~/data/Auth";
 import { USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS } from "~/data/actions/userActions";
 import { loginApi } from "~/api";
 import "~/styles/SignInScreen.scss";
@@ -13,7 +13,7 @@ function SignInScreen() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const { state, dispatch, isLogged } = useContext(Store);
+    const { state, dispatch, isLogged } = useContext(StoreContext);
     const { user: userState } = state;
 
     const navigate = useNavigate();

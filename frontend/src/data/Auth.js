@@ -14,34 +14,17 @@ import {
     USER_REGISTER_REQUEST,
     USER_REGISTER_SUCCESS,
 } from "~/data/actions/userActions";
-import {
-    FETCH_DETAIL_PRODUCT_FAIL,
-    FETCH_DETAIL_PRODUCT_REQUEST,
-    FETCH_DETAIL_PRODUCT_SUCCESS,
-    FETCH_FEATURED_PRODUCTS_FAIL,
-    FETCH_FEATURED_PRODUCTS_REQUEST,
-    FETCH_FEATURED_PRODUCTS_SUCCESS,
-    FETCH_PRODUCTS_FAIL,
-    FETCH_PRODUCTS_REQUEST,
-    FETCH_PRODUCTS_SUCCESS,
-} from "./actions/productActions";
 
 import { logger } from "~/logger";
 import { fetchAccessTokenApi } from "../api";
 import { getError } from "~/utils";
 
-export const Store = createContext();
+export const StoreContext = createContext();
 
 export const INIT_STATE = {
     user: {
         email: null,
         accessToken: null,
-        loading: false,
-    },
-    product: {
-        detailProduct: null,
-        filteredProducts: [],
-        featuredProducts: {},
         loading: false,
     },
 };
@@ -108,75 +91,6 @@ function reducer(state, action) {
                 user: INIT_STATE.user,
             };
 
-        // PRODUCT
-        case FETCH_PRODUCTS_REQUEST:
-        case FETCH_FEATURED_PRODUCTS_REQUEST:
-        case FETCH_DETAIL_PRODUCT_REQUEST:
-            return {
-                ...state,
-                product: {
-                    ...state.product,
-                    loading: true,
-                },
-            };
-        case FETCH_PRODUCTS_SUCCESS:
-            return {
-                ...state,
-                product: {
-                    ...state.product,
-                    filteredProducts: action.payload,
-                    loading: false,
-                },
-            };
-        case FETCH_FEATURED_PRODUCTS_SUCCESS:
-            return {
-                ...state,
-                product: {
-                    ...state.product,
-                    featuredProducts: action.payload,
-                    loading: false,
-                },
-            };
-        case FETCH_DETAIL_PRODUCT_SUCCESS:
-            return {
-                ...state,
-                product: {
-                    ...state.product,
-                    detailProduct: action.payload,
-                    loading: false,
-                },
-            };
-
-        case FETCH_PRODUCTS_FAIL:
-            return {
-                ...state,
-                product: {
-                    ...state.product,
-                    filteredProducts: [],
-                    loading: false,
-                },
-            };
-
-        case FETCH_FEATURED_PRODUCTS_FAIL:
-            return {
-                ...state,
-                product: {
-                    ...state.product,
-                    featuredProducts: [],
-                    loading: false,
-                },
-            };
-
-        case FETCH_DETAIL_PRODUCT_FAIL:
-            return {
-                ...state,
-                product: {
-                    ...state.product,
-                    detailProduct: null,
-                    loading: false,
-                },
-            };
-
         default:
             return state;
     }
@@ -212,5 +126,5 @@ export const StoreProvider = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return <Store.Provider value={value}>{props.children}</Store.Provider>;
+    return <StoreContext.Provider value={value}>{props.children}</StoreContext.Provider>;
 };

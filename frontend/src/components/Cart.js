@@ -1,66 +1,33 @@
 import { faClock, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 import { faLockOpen, faMinus, faPlus, faRotate } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext, useEffect, useState } from "react";
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
-import { images } from "~/assets/images";
+import { CartContext } from "~/data/Cart";
 
 import "~/styles/Cart.scss";
 
-const data1 = [
-    {
-        id: 1,
-        name: "Toothpaste Bits",
-        description: "Fresh Mint",
-        collaboration: "with fluoride",
-        currentPrice: 32,
-        oldPrice: 48,
-        quantity: 1,
-        reviews: 20081,
-        monthDelivery: 4,
-        image: images.product1,
-    },
-    {
-        id: 2,
-        name: "Toothpaste Bits",
-        description: "Fresh Mint",
-        collaboration: "with fluoride",
-        currentPrice: 32,
-        oldPrice: 48,
-        quantity: 1,
-        reviews: 20081,
-        image: images.product2,
-    },
-    {
-        id: 3,
-        name: "Toothpaste Bits",
-        description: "Fresh Mint",
-        collaboration: "with fluoride",
-        currentPrice: 28,
-        oldPrice: null,
-        quantity: 1,
-        reviews: 20081,
-        image: images.product1,
-    },
-    {
-        id: 4,
-        name: "Toothpaste Bits",
-        description: "Fresh Mint",
-        collaboration: "with fluoride",
-        currentPrice: 32,
-        oldPrice: 48,
-        quantity: 1,
-        reviews: 20081,
-        image: images.product2,
-    },
-];
-
 function Cart() {
+    const { cartItems, handleRemoveFromCart, handleAddToCart } = useContext(CartContext);
+    const [totalCost, setTotalCost] = useState(0);
+
+    useEffect(() => {
+        const totalCost = cartItems.reduce((acc, curr) => {
+            const cost = Number(
+                curr.salePrice > 0 ? curr.quantity * curr.salePrice : curr.quantity * curr.originalPrice
+            );
+            return acc + cost;
+        }, 0);
+
+        setTotalCost(totalCost);
+    }, [cartItems]);
+
     return (
         <>
             <Container className="cart">
                 <div className="cart-show mt-3">
-                    {data1.map((item) => (
-                        <Row key={item.id} className="cart-item">
+                    {cartItems.map((item) => (
+                        <Row key={item._id} className="cart-item">
                             <Col xs={3}>
                                 <Image src={item.image} className="cursor-pointer" />
                             </Col>
@@ -79,14 +46,31 @@ function Cart() {
                                     &ensp;Ships in 1-2 weeks
                                 </div>
                                 <div className="cart-item-quantity px-1 mt-4">
-                                    <FontAwesomeIcon icon={faMinus} className="cart-item-quantity-icon p-1 cursor-pointer" />
+                                    <FontAwesomeIcon
+                                        icon={faMinus}
+                                        className="cart-item-quantity-icon p-1 cursor-pointer"
+                                        onClick={() => handleRemoveFromCart(item._id, 1)}
+                                    />
                                     <span className="mx-3">{item.quantity}</span>
-                                    <FontAwesomeIcon icon={faPlus} className="cart-item-quantity-icon p-1 cursor-pointer" />
+                                    <FontAwesomeIcon
+                                        icon={faPlus}
+                                        className="cart-item-quantity-icon p-1 cursor-pointer"
+                                        onClick={() => handleAddToCart(item)}
+                                    />
                                 </div>
                             </Col>
                             <Col xs={3} className="d-flex flex-column justify-content-between">
-                                <FontAwesomeIcon icon={faTrashCan} className="text-secondary cursor-pointer" />
-                                <div className="fw-semibold fs-4">${Number(item.currentPrice).toFixed(2)}</div>
+                                <FontAwesomeIcon
+                                    icon={faTrashCan}
+                                    className="text-secondary cursor-pointer"
+                                    onClick={() => handleRemoveFromCart(item._id)}
+                                />
+                                <div className="fw-semibold fs-4">
+                                    $
+                                    {item.salePrice > 0
+                                        ? item.quantity * item.salePrice
+                                        : item.quantity * item.originalPrice}
+                                </div>
                             </Col>
                         </Row>
                     ))}
@@ -96,7 +80,7 @@ function Cart() {
             <div className="d-flex align-items-center justify-content-around mt-5">
                 <div className="text-center">
                     <p className="mb-0 fs-small fw-semibold">SUBTOTAL</p>
-                    <p className="ff-3 mb-0 fs-5 fw-bold">${data1.reduce((acc, cur) => acc + cur.currentPrice, 0).toFixed(2)}</p>
+                    <p className="ff-3 mb-0 fs-5 fw-bold">${totalCost}</p>
                 </div>
                 <Button className="fw-semibold fs-6 ff-3 ms-3">
                     <FontAwesomeIcon icon={faLockOpen} />

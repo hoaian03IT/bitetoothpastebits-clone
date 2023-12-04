@@ -6,7 +6,7 @@ import { publicRoutes } from "~/config/routePath";
 
 import "~/styles/SignUpScreen.scss";
 import { USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "~/data/actions/userActions";
-import { Store } from "~/data/Store";
+import { StoreContext } from "~/data/Auth";
 import { getError } from "~/utils";
 import { toast } from "react-toastify";
 
@@ -15,7 +15,7 @@ function SignUpScreen() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    const { state, dispatch, isLogged } = useContext(Store);
+    const { state, dispatch, isLogged } = useContext(StoreContext);
     const { user: userState } = state;
 
     const navigate = useNavigate();

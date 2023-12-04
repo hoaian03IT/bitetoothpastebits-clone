@@ -10,7 +10,7 @@ import { MyOffCanvas } from "./MyOffCanvas";
 import { Divider } from "./Divider";
 import { publicRoutes } from "~/config/routePath";
 import { Cart } from "./Cart";
-import { Store } from "~/data/Store";
+import { StoreContext } from "~/data/Auth";
 import { USER_LOGOUT } from "~/data/actions/userActions";
 import { typeProducts } from "~/constants";
 import { convertTypeToText } from "~/utils";
@@ -26,7 +26,7 @@ const learnContent = [
 ];
 
 function NavbarHeaderMobile({ className }) {
-    const { isLogged, dispatch } = useContext(Store);
+    const { isLogged, dispatch } = useContext(StoreContext);
 
     const [showBars, setShowBars] = useState(false);
     const [showCart, setShowCart] = useState(false);

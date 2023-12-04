@@ -1,20 +1,21 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Sticker } from "./Sticker";
 
 import "~/styles/ShopProduct.scss";
 import { useMediaQuery } from "react-responsive";
+import { CartContext } from "~/data/Cart";
 
 function ShopProduct(props) {
+    const { handleAddToCart } = useContext(CartContext);
     const navigate = useNavigate();
     const [active, setActive] = useState(false);
     const matchMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
     const specialPrice = props.monthDelivery ? props.currentPrice / props.monthDelivery : null;
-
     return (
         <Card
             className={`shop-product border-0 ${active && "active"} cursor-pointer`}
@@ -33,7 +34,8 @@ function ShopProduct(props) {
                     </Button>
                     <Button
                         variant="primary"
-                        className={`card-button-below ${matchMobile ? "btn-small" : ""} ${active && "appear"} fw-bold`}>
+                        className={`card-button-below ${matchMobile ? "btn-small" : ""} ${active && "appear"} fw-bold`}
+                        onClick={() => handleAddToCart({ ...props, quantity: 1 })}>
                         Add To Cart
                     </Button>
                     {specialPrice && <Sticker price={specialPrice} />}

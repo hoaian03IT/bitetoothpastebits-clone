@@ -8,14 +8,14 @@ import { LoadingSpinner } from "~/components/LoadingSpinner";
 import { ShopProduct } from "~/components/ShopProduct";
 import { publicRoutes } from "~/config/routePath";
 import { typeProducts } from "~/constants";
-import { Store } from "~/data/Store";
 import { FETCH_PRODUCTS_FAIL, FETCH_PRODUCTS_REQUEST, FETCH_PRODUCTS_SUCCESS } from "~/data/actions/productActions";
 import { filterProductApi } from "~/api";
 import "~/styles/ShopScreen.scss";
 import { convertTypeToText, getError } from "~/utils";
+import { ProductContext } from "~/data/Product";
 
 function ShopScreen() {
-    const { state, dispatch } = useContext(Store);
+    const { state, dispatch } = useContext(ProductContext);
 
     const isLowerPCScreen = useMediaQuery({ query: "(max-width: 768px)" });
     const { search } = useLocation();

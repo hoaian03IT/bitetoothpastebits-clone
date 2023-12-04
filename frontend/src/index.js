@@ -6,7 +6,9 @@ import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import axios from "axios";
-import { StoreProvider } from "./data/Store";
+import { StoreProvider } from "./data/Auth";
+import { ProductProvider } from "./data/Product";
+import { CartProvider } from "./data/Cart";
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -14,7 +16,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     // <React.StrictMode>
     <StoreProvider>
-        <App />
+        <ProductProvider>
+            <CartProvider>
+                <App />
+            </CartProvider>
+        </ProductProvider>
     </StoreProvider>
     // </React.StrictMode>
 );

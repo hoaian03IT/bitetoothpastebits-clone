@@ -9,7 +9,7 @@ import { MyOffCanvas } from "./MyOffCanvas";
 import { useMediaQuery } from "react-responsive";
 import { publicRoutes } from "~/config/routePath";
 import { Cart } from "./Cart";
-import { Store } from "~/data/Store";
+import { StoreContext } from "~/data/Auth";
 import { USER_LOGOUT } from "~/data/actions/userActions";
 import { USER_KEY } from "~/constants";
 
@@ -18,7 +18,7 @@ function NavbarHeaderPC({ className }) {
     const [showCart, setShowCart] = useState(false);
     const [bgColor, setBgColor] = useState("transparent");
 
-    const { dispatch, isLogged } = useContext(Store);
+    const { dispatch, isLogged } = useContext(StoreContext);
 
     useEffect(() => {
         const listener = () => {
