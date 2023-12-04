@@ -35,13 +35,14 @@ class UserClass {
     async login(req, res) {
         try {
             const { email, password } = req.body;
+
             const userLogin = await userModel.findOne({ email });
 
             if (!userLogin) res.status(403).json("Email not exist");
 
             const isMatchPassword = await bcrypt.compare(password, userLogin.password);
 
-            if (!isMatchPassword) res.status(403).json("Password not correct");
+            if (!isMatchPassword) return res.status(403).json("Password not correct");
 
             const accessToken = generateAccessToken(userLogin);
             const refreshToken = generateRefreshToken(userLogin);
